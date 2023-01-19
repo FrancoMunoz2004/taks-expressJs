@@ -1,0 +1,24 @@
+#¿Qué es mi producto y para que sirve? 
+R//
+    Mi producto es una lista de tareas relaizada con el modulo de Express, que sirve poder agregar tus tareas con un nombre y una descripcion para asi mejorar para que la lista de tareas sea ordenada.
+
+#¿Cuáles son las funcionalidades más importantes y porque los usuarios las usarían? 
+R//
+    El producto tiene como funcionalidades las siguientes:
+    * Puedes agregar tareas.
+    * Puedes eliminar una tarea por medio de un ID.
+    * Puedes editar y actualizar una tarea existente.
+
+#Rutas:
+
+http://localhost:8020/lista = En esta podras accededer a todas las funciones del proyecto. 
+
+http://localhost:8020/lista/listar = Se podra visualizar las tareas actuales. 
+
+http://localhost:8020/lista/agregar = Se podra agregar por medio de esta ruta. 
+
+http://localhost:8020/lista/eliminar/&ide = Se podra realizar la eliminacion de la tarea agregandole comop parametro el id. 
+
+http://localhost:8020/lista/actualizado/&ide = Se podra realizar la actualizacion que desee por medio del id que se envia como parametro. 
+
+http://localhost:8020/estado/completada/&completada = se podran visualizar cuales son las tareas completadas y cuales no , y podran ontener por medio del parametro que le enviamos y de acuerdo a este , se podran obtener tanto las completadas , como las incompletas.

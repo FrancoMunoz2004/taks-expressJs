@@ -1,34 +1,21 @@
 const express = require("express");
-const app = express();
-const port = 8000;
 const fs = require("fs");
+const app = express();
+const port = 8020;
+const list = require("./list-edid-router");
+const completados = require("./list-view-router");
+app.use("/estado", completados);
+app.use("/lista", list);
+app.use(express.json());
+app.get("/", function (req, res) {
+  let datos;
+  fs.readFile("tareas.json", function (err, data) {
+    let tarea = data.toString();
+    datos = JSON.parse(tarea);
+    res.send({ tareas: datos });
+  });
+});
 
-app.get('/', express.json(), (req, res) => {
-let datos;
-    fs.readFile("taks.json", function(err, data) {
-    let taks = data.toString()
-    datos = JSON.parse(taks)
-    res.send(datos)
-})
-})
-app.post("/", express.json(), function (req, res) {
-    const obj = req.body
-    let taks;
-    fs.readFile("taks.json", function (err, data){
-        let task = data.toString();
-        taks = JSON.parse(task);
-        taks.push(obj);
-        fs.unlink("taks.json", function (err){
-            if (err) throw err;
-        });
-        fs.appendFile("taks.json", JSON.stringify(taks), function (err){
-        })
-            if(err) throw err;
-        })
-        res.send("obtenido")
-        console.log(obj);
+app.listen(port, function () {
+  console.log(`el servidor esta escuchando en http://localhost:${port} `);
 });
-app.listen(port, (req, res) => {
-  console.log(`servidor escuchado http://localhost:${port}`);
-});
-module.exports = app;
