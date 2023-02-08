@@ -4,12 +4,14 @@ const app = express();
 const port = 8020;
 const list = require("./list-edid-router");
 const completados = require("./list-view-router");
+const login = require("./Login/login");
 const { validateMethod, validateUrl } = require("./middleware/peticiones");
-app.use("/estado", completados);
-app.use("/lista", list);
 app.use(express.json());
 app.use(validateUrl);
 app.use(validateMethod);
+app.use("/estado", completados);
+app.use("/lista", list);
+app.use("/login", login);
 app.get("/", function (req, res) {
   let datos;
   fs.readFile("tareas.json", function (err, data) {

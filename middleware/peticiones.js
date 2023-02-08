@@ -68,7 +68,7 @@ const validateUrl = (req, res, next) => {
   const urlArray = ["/lista/agregar"];
   const validarRuta = urlArray.some((ruta) => ruta === url);
 
-  if (validarRuta) {
+  if (!validarRuta) {
     next();
   } else {
     res.status(400).send("Negativo, no estas autorizado");

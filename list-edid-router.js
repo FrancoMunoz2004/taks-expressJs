@@ -21,7 +21,7 @@ router.post("/agregar", validation, validatePost, function (req, res) {
     console.log("Error vite?");
   });
   console.log(datas);
-  res.json({ message: "Viejo, viejito viejon, la tarea se actualicé" });
+  res.json({ message: "Su tarea fue agregada y con exito" });
 });
 router.delete("/eliminar/&:ide", (req, res) => {
   const ide = parseInt(req.params.ide);
