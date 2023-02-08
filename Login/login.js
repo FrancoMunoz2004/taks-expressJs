@@ -25,7 +25,7 @@ login.get("/protect", function (req, res) {
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
     res.send("autenticado");
   } catch (e) {
-    res.json({ e });
+    res.json({ error:"No autorizado" });
   }
 });
 
